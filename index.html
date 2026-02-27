@@ -152,7 +152,7 @@
   .card-wrapper {
     width: 100%;
     max-width: 680px;
-    height: 490px;
+    height: 510px;
     position: relative;
     cursor: pointer;
   }
@@ -174,6 +174,7 @@
     -webkit-backface-visibility: hidden;
     border-radius: 16px;
     overflow: hidden;
+    border: 2px solid transparent;
   }
 
   /* FRONT */
@@ -254,7 +255,7 @@
   .card-back {
     transform: rotateY(180deg);
     background: #16192a;
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 2px solid transparent;
     box-shadow: 0 25px 60px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
@@ -471,7 +472,7 @@
 
 <div class="progress-bar-wrap">
   <div class="progress-bar-track">
-    <div class="progress-bar-fill" id="progressFill" style="width:12.5%"></div>
+    <div class="progress-bar-fill" id="progressFill" style="width:14.28%"></div>
   </div>
 </div>
 
@@ -486,7 +487,7 @@
           <div class="flip-cue">↺ flip for examples & scenarios</div>
         </div>
       </div>
-      <div class="card-face card-back">
+      <div class="card-face card-back" id="cardBack">
         <div class="back-header">
           <div class="back-header-text">
             <span class="back-eyebrow" id="backEyebrow">Examples of</span>
@@ -497,7 +498,7 @@
         <div class="divider"></div>
         <div class="back-scenarios" id="backScenarios">
           <div class="back-scenario-block" id="backScenarioSchool">
-            <span class="back-scenario-tag">🏫 In Schools</span>
+            <span class="back-scenario-tag"><svg width="18" height="18" viewBox="0 0 36 36" style="display:inline;vertical-align:-3px;margin-right:5px" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="16" width="28" height="18" rx="1" fill="#c0392b"/><polygon points="2,17 18,4 34,17" fill="#e74c3c"/><rect x="14" y="24" width="8" height="10" fill="#8B2500"/><rect x="16" y="14" width="4" height="5" rx="1" fill="#f1c40f"/><rect x="17" y="8" width="2" height="6" fill="#7f8c8d"/><polygon points="15,8 21,8 18,4" fill="#7f8c8d"/></svg> In Schools</span>
             <div class="back-scenario-text" id="backScenarioSchoolText"></div>
           </div>
           <div class="back-scenario-block" id="backScenarioWorld">
@@ -620,7 +621,7 @@ const cards = [
     chipBorder: 'rgba(167,139,250,0.45)',
     chipText: '#ddd6fe',
     icon: '🧠',
-    definition: 'Neural networks are AI systems loosely modeled on the human brain, stacking layers of simple "neurons" that learn patterns from data. Rather than being programmed with specific rules, they learn by processing enormous numbers of examples.',
+    definition: 'Neural networks are AI systems loosely modeled on the human brain, stacking layers of simple "neurons" that learn patterns from data. Rather than being programmed with specific rules, they learn by processing enormous numbers of examples. Neural networks are a specific type of Machine Learning model used for prediction, classification, and feature extraction.',
     examples: ['Facial recognition', 'Netflix recommendations', 'Voice recognition', 'Medical image analysis'],
     scenarioSchool: 'An adaptive reading platform analyzes thousands of a student\'s responses to identify subtle patterns — not just right/wrong answers — and adjusts the difficulty of the next passage accordingly.',
     scenarioWorld: 'A streaming service recommends a show you\'ve never heard of that you end up loving — not by following rules, but by recognizing patterns in everything you\'ve watched, paused, and skipped.',
@@ -666,7 +667,7 @@ const cards = [
     icon: '🤖',
     definition: 'AI-powered robotics combines artificial intelligence with physical machines, enabling them to perceive their environment, make decisions, and take actions in the real world. AI allows robots to go far beyond simple pre-programmed movements — they can adapt and respond.',
     examples: ['Roomba vacuum', 'Surgical robots', 'Warehouse robots', 'Self-driving cars'],
-    scenarioSchool: 'A robotics club programs an AI-guided arm to sort recyclables from trash on a conveyor belt — it perceives, decides, and acts without a human directing each move.',
+    scenarioSchool: 'Milo, a humanoid social robot by RoboKind, uses AI to support students with Autism Spectrum Disorder — delivering consistent, patient interaction through facial expressions and scripted lessons to help build social and communication skills.',
     scenarioWorld: 'A warehouse uses robotic arms to sort and pack thousands of products per hour, navigating the floor autonomously and adjusting routes in real time to avoid obstacles and human workers.',
     source: 'Singh, A. (2024). What is the future of AI in robotics? AZoRobotics. azorobotics.com/Article.aspx?ArticleID=700',
     svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -684,36 +685,6 @@ const cards = [
     </svg>`
   },
   {
-    term: 'Machine Learning',
-    abbr: 'ML',
-    color: '#fb7185',
-    bgGradient: 'linear-gradient(135deg, #881337 0%, #e11d48 60%, #fb7185 100%)',
-    chipBg: 'rgba(251,113,133,0.18)',
-    chipBorder: 'rgba(251,113,133,0.45)',
-    chipText: '#fda4af',
-    icon: '📈',
-    definition: 'Machine learning is the engine behind most modern AI. Rather than being told explicit rules, a machine learning model is given data and learns the patterns on its own through experience. The more data it processes, the more accurate it becomes.',
-    examples: ['Spam filters', 'Fraud detection', 'Credit scoring', 'Product recommendations'],
-    scenarioSchool: 'An attendance and grading platform learns which combinations of early signals — missed assignments, absences, declining scores — most reliably predict a student falling behind, improving over time.',
-    scenarioWorld: 'A bank\'s fraud detection flags an unusual purchase — not because someone coded what fraud looks like, but because the system learned from millions of transactions what patterns are suspicious.',
-    source: 'IBM Think. (2024). What is machine learning? ibm.com/think/topics/machine-learning',
-    svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="14" y1="82" x2="88" y2="82" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-      <line x1="14" y1="82" x2="14" y2="14" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
-      <circle cx="24" cy="74" r="4" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="36" cy="65" r="4" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="48" cy="53" r="4" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="60" cy="44" r="4" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="72" cy="33" r="4" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="82" cy="24" r="4" fill="rgba(255,255,255,0.35)"/>
-      <path d="M21 76 Q40 58 60 44 Q72 34 85 22" stroke="#f43f5e" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <circle cx="85" cy="22" r="7" fill="#f43f5e" stroke="white" stroke-width="2"/>
-      <path d="M82 22 L85 19 L88 22 L85 25 Z" fill="white"/>
-      <text x="8" y="96" fill="rgba(255,255,255,0.4)" font-size="7" font-family="sans-serif">DATA</text>
-      <text x="64" y="16" fill="rgba(255,255,255,0.6)" font-size="7" font-family="sans-serif">LEARNED</text>
-    </svg>`
-  },
-  {
     term: 'Computer Vision',
     abbr: null,
     color: '#22d3ee',
@@ -724,7 +695,7 @@ const cards = [
     icon: '👁️',
     definition: 'Computer vision teaches machines to "see" — to interpret and understand images and video the way human eyes and brains do. It enables machines to identify objects, read text, detect movement, and understand visual scenes in real time.',
     examples: ['Face unlock on phones', 'Self-driving car cameras', 'X-ray analysis', 'Quality control'],
-    scenarioSchool: 'A classroom monitoring system detects when students appear disengaged — based on posture, gaze direction, and facial expression — and alerts the teacher in real time.',
+    scenarioSchool: 'Online Exam Proctoring: During virtual exams, webcams and computer vision monitor students in real time — analyzing eye movement, body language, and behavior to detect potential academic dishonesty.',
     scenarioWorld: 'A self-driving car moves through a busy intersection, distinguishing in real time between a person standing on the sidewalk and one stepping into the road — and adjusting speed accordingly.',
     source: 'IBM Think. (2024). What is computer vision? ibm.com/think/topics/computer-vision',
     svg: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -752,8 +723,8 @@ const cards = [
     chipBorder: 'rgba(192,132,252,0.45)',
     chipText: '#e9d5ff',
     icon: '✨',
-    definition: "Generative AI is trained to create new content — text, images, audio, code — rather than simply analyzing existing data. It learns patterns from vast datasets and uses them to produce original outputs in response to prompts. It's the technology behind ChatGPT, DALL-E, and Claude.",
-    examples: ['ChatGPT', 'DALL-E', 'Claude', 'GitHub Copilot'],
+    definition: "Generative AI is trained to create new content — text, images, audio, code — rather than simply analyzing existing data. It learns patterns from vast datasets and uses them to produce original outputs in response to prompts. When most people think of AI today, this is what they have in mind. It's the technology behind ChatGPT, Claude, Gemini, and education tools such as MagicSchool, Diffit, and more!",
+    examples: ['ChatGPT', 'Claude', 'Gemini', 'MagicSchool', 'Diffit'],
     scenarioSchool: 'A teacher types "Create a 5-day unit plan on the American Revolution for 8th graders" and receives a fully structured curriculum draft — with objectives, activities, and assessments — in seconds.',
     scenarioWorld: 'A restaurant owner describes their menu and vibe in a sentence, and an AI generates a full set of social media posts, a weekly email, and a promotional flyer — ready to post.',
     source: 'MIT News. (2023). Explained: Generative AI. news.mit.edu/2023/explained-generative-ai-1109',
@@ -798,6 +769,10 @@ function buildDots() {
 function updateCard(idx) {
   const card = cards[order[idx]];
   document.getElementById('cardInner').classList.remove('flipped');
+
+  // Apply colored border to both faces
+  document.getElementById('cardFront').style.borderColor = card.color + '60';
+  document.getElementById('cardBack').style.borderColor = card.color + '60';
 
   // Front visual band
   const frontVisual = document.getElementById('cardVisual');
